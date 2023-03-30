@@ -41,7 +41,7 @@
         </svg>
       </span>
     </transition>
-    <span v-if="isUninstalling" class="installed-app-title px-1 text-center text-small text-white text-truncate">Uninstalling...</span>
+    <span v-if="isUninstalling" class="installed-app-title px-1 text-center text-small text-white text-truncate">Удаление...</span>
     <span v-else-if="isOffline" class="installed-app-title px-1 text-center text-small text-white text-truncate">Starting...</span>
     <span v-else class="installed-app-title px-1 text-center font-weight-medium text-truncate text-white">{{ app.name }}</span>
   
@@ -49,7 +49,7 @@
     <b-modal v-if="dependants.length" ref="app-dependants-modal" body-class="pt-1" size="sm" centered hide-footer>
       <template v-slot:modal-header="{ close }">
         <div class="pt-2 d-flex justify-content-between w-100 px-2">
-          <span class="font-weight-bol mb-0">{{ app.name }} is being used by</span>
+          <span class="font-weight-bol mb-0">{{ app.name }} используется</span>
           <!-- Emulate built in modal header close button action -->
           <a href="#" class="align-self-center" v-on:click.stop.prevent="close">
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -90,7 +90,7 @@
     <b-modal v-if="showUninstallConfirmation" ref="uninstall-modal" body-class="pt-1" size="sm" centered hide-footer v-model="showUninstallConfirmation">
       <template v-slot:modal-header="{ close }">
         <div class="pt-2 d-flex justify-content-between  w-100 px-2">
-          <span class="font-weight-bold mb-0">Uninstall {{ app.name }}?</span>
+          <span class="font-weight-bold mb-0">Удалить {{ app.name }}?</span>
           <!-- Emulate built in modal header close button action -->
           <a href="#" class="align-self-center" v-on:click.stop.prevent="close">
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -101,21 +101,21 @@
       </template>
       <template #default="{ close }">
         <div class="px-2">
-          This will also delete its data.
+          Удаление этого приложения также приведет к удалению его данных.
           <div class="mt-3 mb-2 d-flex flex-wra">
             <b-button
               variant="outline-primary"
               class="mr-1 w-100"
               @click="close"
             >
-              Cancel
+              Отмена
             </b-button>
             <b-button
               variant="danger"
               class="ml-1 w-100"
               @click="uninstall"
             >
-              Uninstall
+              Удалить
             </b-button>
           </div>
         </div>
