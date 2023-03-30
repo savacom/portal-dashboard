@@ -18,14 +18,14 @@
           </router-link>
 
           <router-link :to="{name: 'app-store'}">
-            <dock-app id="app-store" name="App Store" :position="position" :notifications="appStoreNotifications" :active="this.$route.name === 'app-store' || this.$route.name === 'app-store-app'" @click="toggleDock(350)" />
+            <dock-app id="app-store" name="Каталог приложений" :position="position" :notifications="appStoreNotifications" :active="this.$route.name === 'app-store' || this.$route.name === 'app-store-app'" @click="toggleDock(350)" />
           </router-link>
 
           <router-link :to="{name: 'settings'}">
-            <dock-app id="settings" name="Settings" :position="position" :notifications="settingsNotifications" :active="this.$route.name === 'settings'" @click="toggleDock(350)" />
+            <dock-app id="settings" name="Настройки" :position="position" :notifications="settingsNotifications" :active="this.$route.name === 'settings'" @click="toggleDock(350)" />
           </router-link>
 
-          <dock-app id="mode" :name="darkMode ? 'Light Mode' : 'Dark Mode'" :position="position" @click="toggleDarkMode">
+          <dock-app id="mode" :name="darkMode ? 'Светлый режим' : 'Темный режим'" :position="position" @click="toggleDarkMode">
             <template v-slot:icon>
               <svg width="100%" height="100%" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                   <g filter="url(#filter0_i_255_16699)">
@@ -84,7 +84,7 @@
             </template>
           </dock-app>
 
-          <dock-app id="logout" name="Logout" :position="position" @click="logout" />
+          <dock-app id="logout" name="Выйти" :position="position" @click="logout" />
         </div>
       </div>
     </transition>
