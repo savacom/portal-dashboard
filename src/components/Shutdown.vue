@@ -7,12 +7,12 @@
     <span class="text-white w-75 text-center">
       <small
         v-if="hasShutdown"
-      >Shutdown complete. You can now safely unplug your Umbrel from the power and internet.</small>
+      >Теперь вы можете безопасно отключить питание вашей системы и интернет.</small>
       <small v-else-if="shuttingDown">
-        <b-spinner small class="mr-2"></b-spinner>Shutting down...
+        <b-spinner small class="mr-2"></b-spinner>Выключение...
       </small>
       <small v-else-if="rebooting">
-        <b-spinner small class="mr-2"></b-spinner>Rebooting...
+        <b-spinner small class="mr-2"></b-spinner>Перезагрузка...
       </small>
     </span>
     <slot></slot>
