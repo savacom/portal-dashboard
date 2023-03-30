@@ -25,28 +25,28 @@
           
           <!-- Umbrel update notification -->
           <transition name="notification-transition" appear>
-            <notification v-if="availableUpdate.version" :text="`Umbrel ${availableUpdate.version} is now available`">
+            <notification v-if="availableUpdate.version" :text="Доступно обновление`Umbrel ${availableUpdate.version}`">
               <b-button @click.prevent="confirmUpdate" variant="alert-glass" size="sm" class="px-2 px-sm-3 mr-2 mr-sm-3" pill>View</b-button>
             </notification>
           </transition>
 
           <!-- Low RAM notification -->
           <transition name="notification-transition" appear>
-            <notification v-if="isRunningLowOnRam" text="Your Umbrel is running low on RAM">
+            <notification v-if="isRunningLowOnRam" text="Для нормальной работы системы недостаточно оперативной памяти">
               <router-link to="/settings#ram" class="btn btn-sm btn-alert-glass rounded-pill px-3 mr-2 mr-sm-3" pill>View</router-link>
             </notification>
           </transition>
 
           <!-- Low storage notification -->
           <transition name="notification-transition" appear>
-            <notification v-if="isRunningLowOnStorage" text="Your Umbrel is running low on storage">
+            <notification v-if="isRunningLowOnStorage" text="На диске заканчивается свободное место">
               <router-link to="/settings#storage" class="btn btn-sm btn-alert-glass rounded-pill px-3 mr-2 mr-sm-3" pill>View</router-link>
             </notification>
           </transition>
 
           <!-- High CPU temperature -->
           <transition name="notification-transition" appear>
-            <notification v-if="isRunningHot" text="Your Raspberry Pi's temperature is too hot">
+            <notification v-if="isRunningHot" text="Перегрев системы">
               <router-link to="/settings#temperature" class="btn btn-sm btn-alert-glass rounded-pill px-3 mr-2 mr-sm-3" pill>View</router-link>
             </notification>
           </transition>
