@@ -2,7 +2,7 @@
   <div class="p-sm-2">
     <div class="my-3 pb-2">
       <h1 class="text-lowercase">{{ greeting }}{{ name ? `, ${name.split(" ")[0]}` : "" }}</h1>
-      <!-- <p class="text-muted">Here's an overview of your Umbrel</p> -->
+      <!-- <p class="text-muted">Вот обзор вашей Ноосферы</p> -->
     </div>
     <b-row>
       <b-col col cols="12" md="6" xl="4">
@@ -130,12 +130,12 @@ export default {
 
       const greetingMessage =
         currentHour >= 4 && currentHour < 12 // after 4:00AM and before 12:00PM
-          ? "Good morning"
+          ? "Доброе утро"
           : currentHour >= 12 && currentHour <= 16 // after 12:00PM and before 5:00PM
-          ? "Good afternoon"
+          ? "Добрый день"
           : currentHour > 16 || currentHour < 4 // after 5:00PM or before 4:00AM (to accommodate our fellow hackers)
-          ? "Good evening"
-          : "Welcome back"; // if for some reason the calculation didn't work
+          ? "Добрый вечер"
+          : "Добро пожаловать"; // if for some reason the calculation didn't work
 
       return greetingMessage;
     }
