@@ -4,14 +4,14 @@
     <div v-if="step === 0" class="d-flex flex-column align-items-center justify-content-center p-2 min-vh100">
       <div class="w-75 d-flex flex-column align-items-center justify-content-center">
         <logo class="mb-3 logo" />
-        <h1 class="text-center text-white text-lowercase mb-2">Welcome to Umbrel</h1>
-        <p class="text-center text-white">Your personal server is now ready to setup.</p>
+        <h1 class="text-center text-white text-lowercase mb-2">Добро пожаловать в Ноосферу</h1>
+        <p class="text-center text-white">Ваш личный сервер готов к установке.</p>
         <transition name="slide-up" appear>
           <b-button
             size="lg"
             class="btn-start mt-4 mx-auto d-block px-4"
             @click="next"
-          >Start</b-button>
+          >Начать</b-button>
         </transition>
       </div>
     </div>
@@ -20,14 +20,14 @@
       <logo class="ml-3 mt-3 logo logo-small d-none d-sm-block" />
       <logo class="logo logo-xs d-sm-none" />
         <div v-if="step === 1" :key="1" class="card-glass px-3 px-sm-4 pt-5 pb-5 mt-5 mt-sm-0 mx-2">
-          <h3 class="text-center text-white mb-2">Create your account</h3>
-          <p class="text-center text-white mb-2">Your account information is stored only on your Umbrel. Please make sure to backup your password safely as there is no way to reset it.</p>
+          <h3 class="text-center text-white mb-2">Создать аккаунт</h3>
+          <p class="text-center text-white mb-2">Информация о вашей учетной записи хранится только на вашем сервере. Обязательно сделайте резервную копию своего пароля, так как его невозможно сбросить.</p>
           <div class="form-container mt-4 d-flex flex-column form-container w-100 align-items-center">
             <div class="position-relative w-100">
               <b-form-input
                 v-model="name"
                 ref="name"
-                placeholder="Name"
+                placeholder="Имя"
                 class="glass-input w-100"
                 @input="resetError('nameError')"
                 @blur="validateName"
@@ -40,7 +40,7 @@
               <input-password
                 v-model="password"
                 ref="password"
-                placeholder="Password"
+                placeholder="Пароль"
                 inputGroupClass="glass-input-group"
                 inputClass="glass-input w-100"
                 @input="resetError('passwordError')"
@@ -53,7 +53,7 @@
               <input-password
                 v-model="confirmPassword"
                 ref="confirmPassword"
-                placeholder="Confirm password"
+                placeholder="Подтверждение пароля"
                 inputGroupClass="glass-input-group"
                 inputClass="glass-input w-100"
                 @input="resetError('confirmPasswordError')"
@@ -66,20 +66,20 @@
               class="btn-next mt-2 d-block px-4"
               @click="createAccount"
               :disabled="isRegistering"
-            >{{ isRegistering ? 'Creating' : 'Create' }}</b-button>
+            >{{ isRegistering ? 'Creating' : 'Создать' }}</b-button>
           </div>
         </div>
         <div v-if="step === 2" :key="2" class="card-glass px-3 px-sm-4 pt-5 pb-5 mt-5 mt-sm-0 mx-2">
-          <h3 class="text-center text-white mb-2">Congratulations 🎉</h3>
-          <p class="text-center text-white mb-2">That's it — you're all set.</p>
+          <h3 class="text-center text-white mb-2">Поздравляем 🎉</h3>
+          <p class="text-center text-white mb-2">Все готово.</p>
           <div class="form-container mt-4 d-flex flex-column form-container w-100 align-items-center">
-            <p class="opacity-80 text-center text-white">By clicking next, you agree that Umbrel is in beta and should not be considered secure.</p>
+            <p class="opacity-80 text-center text-white">Нажимая «Далее», вы соглашаетесь с тем, что Ноосфера находится в стадии бета-тестирования и не может считаться полностью безопасной..</p>
           </div>
           <div class="d-flex flex-column align-items-center">
           <b-button
             class="btn-next mt-2 d-block px-4"
             @click="next"
-          >Next</b-button>
+          >Далее</b-button>
           </div>
         </div>
     </div>
@@ -163,23 +163,23 @@ export default {
     },
     validateName() {
       if (!this.name.length) {
-        this.nameError = 'Please enter a name to continue';
+        this.nameError = 'Пожалуйста введите Имя для продолжения';
         return false;
       }
     },
     validatePassword() {
       if (this.password.length < 12) {
-        this.passwordError = 'Password should be at least 12 characters';
+        this.passwordError = 'Пароль должен состоять минимум из 12 символов';
         return false;
       }
     },
     validateConfirmPassword() {
       if (!this.confirmPassword) {
-        this.confirmPasswordError = 'Please confirm your password';
+        this.confirmPasswordError = 'Пожалуйста подтвердите свой пароль';
         return false;
       }
       if (this.password !== this.confirmPassword) {
-        this.confirmPasswordError = 'The passwords do not match';
+        this.confirmPasswordError = 'Пароль не совпадает';
         return false;
       }
     }
