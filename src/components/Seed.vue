@@ -1,12 +1,12 @@
 <template>
   <div class="px-2 px-sm-4 pb-2 pb-sm-3">
-    <!-- <span>Enter your password to view your 24-word seed phrase</span> -->
+    <!-- <span>Введите пароль, чтобы увидеть свою seed-фразу, состоящую из 24 слов</span> -->
     <div class="px-0 px-lg-4" v-if="!showSeed">
-      <label class="mb-2">Enter your password</label>
+      <label class="mb-2">Введите пароль</label>
       <input-password
         v-model="password"
         ref="password"
-        placeholder="Password"
+        placeholder="Пароль"
         inputGroupClass="neu-input-group"
         :inputClass="[
                     isIncorrectPassword ? 'incorrect-password' : '',
@@ -15,7 +15,7 @@
         :disabled="isLoadingSeed"
       />
 
-      <label v-if="otpEnabled" class="mt-3 mb-0">Enter your two-factor authenticator (2FA) code</label>
+      <label v-if="otpEnabled" class="mt-3 mb-0">Введите ваш код для двухфакторной аутентификации</label>
       <div class="seed-input-otp-container">
         <input-otp-token
           v-if="otpEnabled"
@@ -29,12 +29,12 @@
       <small
         class="mt-2 text-danger error float-right"
         v-show="isIncorrectPassword"
-      >Incorrect password</small>
+      >Неверный пароль</small>
 
       <small
         class="mt-2 text-danger error float-right"
         v-show="isIncorrectOtp"
-      >Incorrect code</small>
+      >Неверный код</small>
 
       <b-button
         variant="success"
@@ -43,7 +43,7 @@
         @click="fetchSeed"
       >
         {{
-        isLoadingSeed ? "Decrypting Secret Words..." : "View Secret Words"
+        isLoadingSeed ? "Расшифровка мнемонической фразы..." : "Показать мнемоническую фразу"
         }}
       </b-button>
     </div>
