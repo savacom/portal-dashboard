@@ -1,6 +1,6 @@
 <template>
   <card-widget
-      header="Storage"
+      header="Хранилище"
       :status="cardStatus"
     >
     <div class="card-custom-body">
@@ -9,7 +9,7 @@
           <div>
             <div>
               <h3 class="mb-1">{{ readableSize(storage.used) }}</h3>
-              <p class="text-muted mb-0">Used out of {{ readableSize(storage.total) }} </p>
+              <p class="text-muted mb-0">Использовано из {{ readableSize(storage.total) }} </p>
             </div>
           </div>
 
@@ -40,20 +40,20 @@
             :value="Math.round(storage.used * 100/storage.total)"
             class="mb-1"
             :style="{ height: '5px' }"
-            :variant="isRunningLowOnStorage ? (isStorageFull ? 'danger' : 'warning') : 'success'"
+            :variant="isRunningLowOnStorage ? (isStorageFull ? 'опасно' : 'предупреждение') : 'успешно'"
           ></b-progress>
           <div class="text-right">
-            <small class="text-muted">{{ readableSize(storage.total - storage.used) }} available</small>
+            <small class="text-muted">{{ readableSize(storage.total - storage.used) }} доступно</small>
           </div>
 
-          <b-alert v-if="isRunningLowOnStorage" :variant="isStorageFull ? 'danger' : 'warning'" class="mt-3" show>
-            <small>Consider uninstalling some apps or upgrading to a larger drive.</small>
+          <b-alert v-if="isRunningLowOnStorage" :variant="isStorageFull ? 'опасно' : 'предупреждение'" class="mt-3" show>
+            <small>Стоит удалить некоторые приложения или увеличить размер хранилища.</small>
           </b-alert>
         </div>
         <div class="pt-1">
             <b-link v-b-toggle.storage-breakdown-collapse class="card-link primary-link px-3 px-xl-4">
-              <span class="when-closed">View usage</span>
-              <span class="when-open">Hide usage</span>
+              <span class="when-closed">Показать размер занятого пространства</span>
+              <span class="when-open">Скрыть размер занятого пространства</span>
             </b-link>
             <div class="pb-4"></div>
             <b-collapse id="storage-breakdown-collapse">
@@ -72,13 +72,13 @@
                     />
                     <div class="w-100">
                       <div class="d-flex justify-content-between align-items-baseline">
-                        <span v-if="app.id === 'umbrel'">System
+                        <span v-if="app.id === 'umbrel'">Система
                           <!-- <b-icon icon="info-circle-fill" style="opacity: 0.4" variant="dark" class="ml-1" v-b-tooltip.hover.bottom title="Including Bitcoin Core, LND, and Electrum server"></b-icon> -->
                         </span>
                         <span v-else>{{ app.name }}</span>
 
                         <!-- There's an edge case where a negative value may be returned by the API -->
-                        <small v-if="app.used < 0" class="text-muted">Calculating...</small>
+                        <small v-if="app.used < 0" class="text-muted">Вычисление...</small>
                         <small v-else class="text-muted">{{ readableSize(app.used) }}</small>
                       </div>
                       <b-progress
